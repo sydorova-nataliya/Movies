@@ -1,0 +1,17 @@
+.movie{
+    margin: 10px;
+    width: 170px;
+    &__photo{
+        border-radius: 20px;
+        box-shadow: inset 4px 4px 5px rgba(164, 14, 174, 0.5), 4px 4px 5px rgb(199, 120, 191);
+        width: 150px;
+    }
+    &__title{
+        font-size: 14px;
+        line-height: 18px;
+        font-family: 'Montserrat-Black', sans-serif;
+        text-align: center;
+
+    }
+}
+

@@ -1,0 +1,39 @@
+.footer{
+    font-family: 'Montserrat-Black', sans-serif;
+    width: 100%;
+    background-color:#032541;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__logo{
+        width: 200px;
+    }
+    &__title{
+        text-transform: uppercase;
+        margin: 40px 0 0 0;
+        font-size: 26px;
+        line-height: 30px;
+    }
+    &__section{
+       display: flex;
+       justify-content: space-around;
+       
+    }
+    .list{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        &__contact-links{
+            margin: 5px 0;
+        }
+        &__contact-links a{
+            color: white;
+            text-decoration: none;
+            
+        }
+        &__contact-links a:hover{
+            text-decoration: underline;
+        }
+    }
+}

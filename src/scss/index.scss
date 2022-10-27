@@ -1,29 +1,23 @@
 @import "~normalize.css";
 @import "./header";
 @import "./footer";
-.popular,.top-rated, .upcoming{
+@import "./movie";
+
+.container{
+    font-family: "Montserrat-Black", sans-serif;
     display: flex;
+    justify-content: center;
+}
+.popular__section,.top-rated__section, .upcoming__section{
     flex-wrap: wrap;
+    justify-content: center;
 }
 .name-part{
     font-family: 'Montserrat-Black', sans-serif;
     font-size: 26px;
     line-height: 30px;
     margin-bottom: 0px;
-}
-.movie{
-    margin: 10px;
-    &__photo{
-        border-radius: 20px;
-        box-shadow: inset 4px 4px 5px rgba(164, 14, 174, 0.5), 4px 4px 5px rgb(199, 120, 191);
-    }
-    &__title{
-        font-size: 14px;
-        line-height: 18px;
-        font-family: 'Montserrat-Black', sans-serif;
-        text-align: center;
-        margin: 10px 0 0 0;
-    }
-}
+    text-align: center;
 
+}
 

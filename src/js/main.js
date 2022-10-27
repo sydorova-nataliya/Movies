@@ -1,17 +1,13 @@
-export const {API_KEY} = process.env;
+import { generatUrl } from "./utils";
 
 const getPopular = '/movie/popular';
 const getTopRated= '/movie/top_rated';
 const getUpcoming= '/movie/upcoming';
 
-let popularDiv= document.querySelector('.popular');
-let topRatedDiv= document.querySelector('.top-rated');
-let upcomingDiv= document.querySelector('.upcoming');
+let popularDiv= document.querySelector('.popular__section');
+let topRatedDiv= document.querySelector('.top-rated__section');
+let upcomingDiv= document.querySelector('.upcoming__section');
 
-function fetchURL(get, API_KEY){
-    const http = 'https://api.themoviedb.org/3';
-    return `${http}${get}?api_key=${API_KEY}`
-}
 function createElement(tagName, textContent, classNames, parent){
     let element = document.createElement(tagName);
     element.textContent = textContent;
@@ -23,31 +19,33 @@ function createElement(tagName, textContent, classNames, parent){
   }
 
 function renderMovie(data, container){
-    data.results.map(({original_title, poster_path})=>{
-        
+    data.results.map(({original_title, poster_path, release_date, popularity})=>{
+        console.log(popularity);
         let containerMovie = document.createElement('div');
         containerMovie.classList.add('movie');
-
         createElement('img', '', ['movie__photo','photo'], containerMovie);
         let imgMovie= containerMovie.querySelector('.movie__photo');
-        imgMovie.src=`https://image.tmdb.org/t/p/w200${poster_path}`;
+        imgMovie.src=` https://image.tmdb.org/t/p/original${poster_path}`;
 
-        createElement('h3', original_title, ['movie__title','title'], containerMovie);
+        createElement('h3', original_title, ['movie__title'], containerMovie);
+        createElement('span', Math.round(popularity), ['movie__popularity'], containerMovie);
+        createElement('p', release_date, ['movie__date'], containerMovie);
 
         container.append(containerMovie);
     })
 }
-fetch(fetchURL(getPopular,API_KEY))
+
+fetch(generatUrl(getPopular))
 .then(res=>res.json())
 .then(data=>{
     renderMovie(data, popularDiv);
 })
-fetch(fetchURL(getTopRated,API_KEY))
+fetch(generatUrl(getTopRated))
 .then(res=>res.json())
 .then(data=>{
     renderMovie(data, topRatedDiv);
 })
-fetch(fetchURL(getUpcoming,API_KEY))
+fetch(generatUrl(getUpcoming))
 .then(res=>res.json())
 .then(data=>{
     renderMovie(data, upcomingDiv);
