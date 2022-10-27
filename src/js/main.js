@@ -26,13 +26,13 @@ function renderMovie(data, container){
     data.results.map(({original_title, poster_path})=>{
         
         let containerMovie = document.createElement('div');
-        containerMovie.classList.add('containerMovie');
+        containerMovie.classList.add('movie');
 
-        createElement('img', '', ['movie-photo'], containerMovie);
-        let imgMovie= containerMovie.querySelector('.movie-photo');
+        createElement('img', '', ['movie__photo','photo'], containerMovie);
+        let imgMovie= containerMovie.querySelector('.movie__photo');
         imgMovie.src=`https://image.tmdb.org/t/p/w200${poster_path}`;
 
-        createElement('h1', original_title, ['title'], containerMovie);
+        createElement('h3', original_title, ['movie__title','title'], containerMovie);
 
         container.append(containerMovie);
     })
@@ -41,4 +41,14 @@ fetch(fetchURL(getPopular,API_KEY))
 .then(res=>res.json())
 .then(data=>{
     renderMovie(data, popularDiv);
+})
+fetch(fetchURL(getTopRated,API_KEY))
+.then(res=>res.json())
+.then(data=>{
+    renderMovie(data, topRatedDiv);
+})
+fetch(fetchURL(getUpcoming,API_KEY))
+.then(res=>res.json())
+.then(data=>{
+    renderMovie(data, upcomingDiv);
 })
