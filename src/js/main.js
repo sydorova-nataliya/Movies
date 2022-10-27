@@ -17,19 +17,24 @@ function createElement(tagName, textContent, classNames, parent){
     })
     parent.append(element);
   }
+   const parseIsoDatetime= date =>{
+    let tmp = new Date(date).toString().split(' ');
+    return `${tmp[1]} ${tmp[2]}, ${tmp[3]}`
+}
 
 function renderMovie(data, container){
     data.results.map(({original_title, poster_path, release_date, popularity})=>{
-        console.log(popularity);
+        //console.log(popularity);
         let containerMovie = document.createElement('div');
         containerMovie.classList.add('movie');
         createElement('img', '', ['movie__photo','photo'], containerMovie);
         let imgMovie= containerMovie.querySelector('.movie__photo');
         imgMovie.src=` https://image.tmdb.org/t/p/original${poster_path}`;
 
-        createElement('h3', original_title, ['movie__title'], containerMovie);
+  
+        createElement('a', original_title, ['movie__title'], containerMovie);
         createElement('span', Math.round(popularity), ['movie__popularity'], containerMovie);
-        createElement('p', release_date, ['movie__date'], containerMovie);
+        createElement('p', parseIsoDatetime(release_date), ['movie__date'], containerMovie);
 
         container.append(containerMovie);
     })

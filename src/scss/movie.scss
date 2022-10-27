@@ -1,6 +1,6 @@
 .movie{
     margin: 10px;
-    width: 170px;
+    width: 150px;
     &__photo{
         border-radius: 20px;
         box-shadow: inset 4px 4px 5px rgba(164, 14, 174, 0.5), 4px 4px 5px rgb(199, 120, 191);
@@ -11,7 +11,11 @@
         line-height: 18px;
         font-family: 'Montserrat-Black', sans-serif;
         text-align: center;
-
+        font-weight: bold;
+        margin: 5px 0 0 0 ;
+    }
+    &__title:hover{
+        color: rgb(0, 76, 255);
     }
 }
 
