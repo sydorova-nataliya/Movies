@@ -1,8 +1,4 @@
-import { generatUrl } from "./utils";
-
-const getPopular = '/movie/popular';
-const getTopRated= '/movie/top_rated';
-const getUpcoming= '/movie/upcoming';
+import { generatUrl, calculatePopularity, parseIsoDatetime } from "./utils";
 
 let popularDiv= document.querySelector('.popular__section');
 let topRatedDiv= document.querySelector('.top-rated__section');
@@ -17,14 +13,9 @@ function createElement(tagName, textContent, classNames, parent){
     })
     parent.append(element);
   }
-   const parseIsoDatetime= date =>{
-    let tmp = new Date(date).toString().split(' ');
-    return `${tmp[1]} ${tmp[2]}, ${tmp[3]}`
-}
 
 function renderMovie(data, container){
     data.results.map(({original_title, poster_path, release_date, popularity})=>{
-        //console.log(popularity);
         let containerMovie = document.createElement('div');
         containerMovie.classList.add('movie');
         createElement('img', '', ['movie__photo','photo'], containerMovie);
@@ -33,24 +24,24 @@ function renderMovie(data, container){
 
   
         createElement('a', original_title, ['movie__title'], containerMovie);
-        createElement('span', Math.round(popularity), ['movie__popularity'], containerMovie);
+        createElement('span', calculatePopularity(popularity), ['movie__popularity'], containerMovie);
         createElement('p', parseIsoDatetime(release_date), ['movie__date'], containerMovie);
 
         container.append(containerMovie);
     })
 }
 
-fetch(generatUrl(getPopular))
+fetch(generatUrl('/movie/popular'))
 .then(res=>res.json())
 .then(data=>{
     renderMovie(data, popularDiv);
 })
-fetch(generatUrl(getTopRated))
+fetch(generatUrl('/movie/top_rated'))
 .then(res=>res.json())
 .then(data=>{
     renderMovie(data, topRatedDiv);
 })
-fetch(generatUrl(getUpcoming))
+fetch(generatUrl('/movie/upcoming'))
 .then(res=>res.json())
 .then(data=>{
     renderMovie(data, upcomingDiv);
