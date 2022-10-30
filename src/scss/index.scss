@@ -2,11 +2,17 @@
 @import "./header";
 @import "./footer";
 @import "./movie";
-
+.root{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .container{
     font-family: "Montserrat-Black", sans-serif;
     display: flex;
     justify-content: center;
+    width: 80%;
 }
 .popular__section,.top-rated__section, .upcoming__section{
     flex-wrap: wrap;
