@@ -1,5 +1,16 @@
 import { convertDate, calculatePopularity, generateImageUrl} from "./utils";
 
+export const renderMovies = (movies, title) => (`
+  <div class="container">
+    <section>
+      <h2 class="name-part">${title}</h2>
+      <div class="section popular__section">
+        ${movies.map(movie => renderMovie(movie)).join('')}
+      </div>
+    </section>
+  </div>
+`);
+
 export const renderMovie = ({id, title, poster_path,original_title, vote_average, release_date}) => (`
         <div class="movie">
             <a href="#movieId=${id}" >
@@ -12,13 +23,3 @@ export const renderMovie = ({id, title, poster_path,original_title, vote_average
        `)
 
 
-export const renderMovies = (movies, title) => (`
-  <div class="container">
-    <section>
-      <h2 class="name-part">${title}</h2>
-      <div class="section popular__section">
-        ${movies.map(movie => renderMovie(movie)).join('')}
-      </div>
-    </section>
-  </div>
-`);
