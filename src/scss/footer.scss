@@ -1,8 +1,8 @@
+@import "./colors";
 .footer{
-    font-family: 'Montserrat-Black', sans-serif;
     width: 100%;
-    background-color:#032541;
-    color: white;
+    background-color:$main-background;
+    color: $white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,7 +28,7 @@
             margin: 5px 0;
         }
         &__contact-links a{
-            color: white;
+            color: $white;
             text-decoration: none;
             
         }

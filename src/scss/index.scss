@@ -2,30 +2,6 @@
 @import "./header";
 @import "./footer";
 @import "./movie";
-.root{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.container{
-    font-family: "Montserrat-Black", sans-serif;
-    display: flex;
-    justify-content: center;
-    width: 80%;
-}
-.popular__section,.top-rated__section, .upcoming__section{
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.name-part{
-    font-family: 'Montserrat-Black', sans-serif;
-    font-size: 26px;
-    line-height: 30px;
-    margin: 10px 0 0 0;
-    text-align: center;
-    color: rgb(29, 38, 101);
-    text-transform: uppercase;
-
-}
+@import "./global";
+@import "./colors";
 

@@ -1,0 +1,29 @@
+@import "./colors";
+*{
+    font-family: 'Montserrat-Black', sans-serif;
+}
+.root{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}
+.section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.name-part{
+    font-size: 26px;
+    line-height: 30px;
+    margin: 10px 0 0 0;
+    text-align: center;
+    color: $main-violet;
+    text-transform: uppercase;
+
+}

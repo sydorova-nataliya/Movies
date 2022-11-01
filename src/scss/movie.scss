@@ -1,3 +1,4 @@
+@import "./colors";
 .movie{
     margin: 10px;
     width: 150px; 
@@ -14,7 +15,6 @@
         display: inline-block;
         font-size: 16px;
         line-height: 20px;
-        font-family: 'Montserrat-Black', sans-serif;
         font-weight: bold;
         margin:10px 0 0 0;
     }

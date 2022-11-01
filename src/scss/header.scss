@@ -1,18 +1,15 @@
-.section{
-    display: flex;
-}
+@import "./colors";
+
 .header{
-    font-family: 'Montserrat-Black', sans-serif;
     width: 100%;
-    background-color:#032541;
-    color: white;
+    background-color:$main-background;
+    color: $white;
     display: flex;
     justify-content: center;
     &__section{
-        
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-around !important;
         height: 300px;
     }
     &__title{
@@ -35,14 +32,16 @@
         &__submit{
             padding: 10px 15px;
             border-radius: 20px;
-            background-color: rgb(166, 232, 232);
+            background-color: $light-violet;
             font-weight: bold;
             font-size: 18px;
+            border: none;
             line-height: 22px;
             &:hover{
                 cursor:pointer;
-                background-color: rgb(103, 172, 172);
+                background-color: $main-violet;
                 color: white;
+                border: none;
             }
         }
         
