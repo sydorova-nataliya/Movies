@@ -17,9 +17,10 @@
         line-height: 20px;
         font-weight: bold;
         margin:10px 0 0 0;
+        text-decoration: none;
     }
     &__title:hover{
-        color: rgb(0, 76, 255);
+        color: $hover;
     }
     &__date{
         margin: 0;
@@ -47,5 +48,75 @@
       background-color: black;
     }
     
+}
+
+.movie-details{
+    display: flex;
+    margin: 30px;
+    .wrapper{
+       display: inline-block;
+       margin-left: 30px;
+    }
+    &__photo{
+        width: 600px;
+    }
+    &__title{
+        font-size: 30px;
+        line-height:34px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    &__title:hover{
+        color: $hover;
+    }
+    &__date{
+        margin: 5px 0 10px 0;
+        font-style: italic;
+    }
+    &__popularity{
+        z-index: 1;
+        position: relative;
+        color: $white;
+        font-size: 19px;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+    &__popularity::before{
+      z-index: -2;
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: -3px;
+      display: inline-block;
+      width: 43px;
+      height: 43px;
+      border-radius: 50%;
+      background-color: black;
+    }
+    &__tagline{
+        text-decoration: underline;
+    }
+    &__overview{
+        margin: 0;
+    }
+    &__overview-text{
+        margin: 5px 0;
+    }
+    &__genres{
+        font-size: 17px;
+        margin: 10px 0;
+    }
+    &__list{
+        padding: 0 0 0 10px;
+        margin: 0 0 10px 0;
+        list-style-type:square;
+    }
+    &__homepage{
+        color: black;
+        text-decoration: none;
+    }
+    &__homepage:hover{
+        color: $hover;
+    }
 }
 

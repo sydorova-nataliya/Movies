@@ -7,9 +7,10 @@
     display: flex;
     justify-content: center;
     &__section{
+        display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around !important;
+        justify-content: space-around;
         height: 300px;
     }
     &__title{

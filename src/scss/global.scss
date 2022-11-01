@@ -2,18 +2,17 @@
 *{
     font-family: 'Montserrat-Black', sans-serif;
 }
-.root{
+.section{
     width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 .container{
-    display: flex;
-    justify-content: center;
-    width: 80%;
+    width: 90%;
 }
-.section{
+
+.movie-holder{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -25,5 +24,8 @@
     text-align: center;
     color: $main-violet;
     text-transform: uppercase;
-
+    display: block;
+}
+.error_holder{
+    text-align: center;
 }
