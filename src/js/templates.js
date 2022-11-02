@@ -70,3 +70,24 @@ export const renderError = ({status_code, status_message}) => (`
      </section>
    </div>
  `);
+ export const renderMoviesList = (movies, query) => (`
+ <div class="section">
+   <section class="container">
+      <h2>Search by request: ${query}</h2>
+       ${movies.map(movie => renderMovieItem(movie)).join('')}
+   </section>
+ </div>
+`);
+
+export const renderMovieItem = ({id, title, poster_path,original_title, release_date, overview}) => (`
+       <div class="movie-item">
+           <a href="#movieId=${id}" >
+               <img class="movie-item__photo" src="${generateImageUrl(poster_path)}" alt="${title}" loading="lazy">
+           </a>
+           <div class="movie-item__wrapper">
+            <a class="movie-item__title " href="#movieId=${id}">${original_title}</a>
+            <p class="movie-item__date">${convertDate(release_date)}</p>
+            <p>${overview}</p>
+           </div>
+       </div>
+      `)

@@ -119,5 +119,33 @@
         color: $hover;
     }
 }
-
+.movie-item{
+    margin: 10px 0;
+    padding: 20px ;
+    width: 100%;
+    border: 3px solid $main-violet;
+    border-radius: 20px;
+    display: flex;
+    &__wrapper{
+        margin-left: 30px;
+    }
+    &__photo{
+        width: 120px;
+        border-radius: 20px;
+    }
+    &__title{
+        font-size: 24px;
+        line-height:28px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    &__title:hover{
+        color: $hover;
+    }
+    &__date{
+        margin: 5px 0 10px 0;
+        font-style: italic;
+        
+    }
+}
 
