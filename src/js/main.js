@@ -1,5 +1,4 @@
 import { getMovie, getMovieDetails, getSearch } from "./api";
-import { generateSearch } from "./utils";
 const submit = document.getElementById('submit');
 const text = document.getElementById('text');
 checkURL();
@@ -18,12 +17,11 @@ function checkURL(){
     if(hash==='#movieId'){
         getMovieDetails(movieId);
     }else if(hash==='#search'){
-      getSearch(movieId);
+        getSearch(movieId);
     }else{
         document.getElementById('root').innerHTML='';
         getMovie('popular', 'Popular' );
         getMovie('top_rated','Top Rated' );
-        getMovie('upcoming','Upcomming' );
-        
+        getMovie('upcoming','Upcomming' ); 
     }
   }

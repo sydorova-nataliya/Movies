@@ -1,17 +1,16 @@
 import {renderMovies , renderMovieDetails, renderError, renderNoMovies,renderMoviesList } from './templates';
 import { generateSearch, generateUrl} from "./utils";
-import {root} from "./constans";
+import {ROOT} from "./constans";
 
 export const getMovie = (getURL, title)=>{
     fetch(generateUrl(getURL))
     .then(res=>res.json())
     .then(data=>{
         if(data.success===false){
-            root.innerHTML=renderError(data);
+            ROOT.innerHTML=renderError(data);
         }else{
-            root.innerHTML += renderMovies(data.results, title);
-        }
-        
+            ROOT.innerHTML += renderMovies(data.results, title);
+        }   
     })
 }
 
@@ -20,9 +19,9 @@ export const getMovieDetails = getURL=>{
     .then(res=>res.json())
     .then(data=>{
         if(data.success===false){
-            root.innerHTML=renderError(data);
+            ROOT.innerHTML=renderError(data);
         }else{
-            document.getElementById('root').innerHTML = renderMovieDetails(data);
+            ROOT.innerHTML = renderMovieDetails(data);
         }
     })
 }
@@ -32,12 +31,11 @@ export const getSearch = (query)=>{
     .then(res=>res.json())
     .then(data=>{
         if(data.success===false){
-            root.innerHTML=renderError(data);
+            ROOT.innerHTML=renderError(data);
         }else if(data.results.length===0){
-            root.innerHTML=renderNoMovies();
+            ROOT.innerHTML=renderNoMovies();
         }else{
-            root.innerHTML = renderMoviesList(data.results, query);
+            ROOT.innerHTML = renderMoviesList(data.results, query);
         }
-        
     })
 }

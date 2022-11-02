@@ -61,7 +61,7 @@ export const renderError = ({status_code, status_message}) => (`
      </div>
    `);
 
-   export const renderNoMovies = () => (`
+  export const renderNoMovies = () => (`
    <div class="section">
      <section class="container">
        <div class="error_holder">
