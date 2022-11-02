@@ -1,48 +1,29 @@
-import { generatUrl, calculatePopularity, parseIsoDatetime } from "./utils";
+import { getMovie, getMovieDetails, getSearch } from "./api";
+import { generateSearch } from "./utils";
+const submit = document.getElementById('submit');
+const text = document.getElementById('text');
+checkURL();
 
-let popularDiv= document.querySelector('.popular__section');
-let topRatedDiv= document.querySelector('.top-rated__section');
-let upcomingDiv= document.querySelector('.upcoming__section');
+window.addEventListener('hashchange', () => {
+    checkURL();
+  });
 
-function createElement(tagName, textContent, classNames, parent){
-    let element = document.createElement(tagName);
-    element.textContent = textContent;
+submit.addEventListener('click', function(){
+  document.location.hash=`search=${text.value}`; 
+  text.value='';
+})
 
-    classNames.forEach(function(className){
-      element.classList.add(className);
-    })
-    parent.append(element);
+function checkURL(){
+    const [hash, movieId] = document.location.hash.split('=');
+    if(hash==='#movieId'){
+        getMovieDetails(movieId);
+    }else if(hash==='#search'){
+      getSearch(movieId);
+    }else{
+        document.getElementById('root').innerHTML='';
+        getMovie('popular', 'Popular' );
+        getMovie('top_rated','Top Rated' );
+        getMovie('upcoming','Upcomming' );
+        
+    }
   }
-
-function renderMovie(data, container){
-    data.results.map(({original_title, poster_path, release_date, popularity})=>{
-        let containerMovie = document.createElement('div');
-        containerMovie.classList.add('movie');
-        createElement('img', '', ['movie__photo','photo'], containerMovie);
-        let imgMovie= containerMovie.querySelector('.movie__photo');
-        imgMovie.src=` https://image.tmdb.org/t/p/original${poster_path}`;
-
-  
-        createElement('a', original_title, ['movie__title'], containerMovie);
-        createElement('span', calculatePopularity(popularity), ['movie__popularity'], containerMovie);
-        createElement('p', parseIsoDatetime(release_date), ['movie__date'], containerMovie);
-
-        container.append(containerMovie);
-    })
-}
-
-fetch(generatUrl('/movie/popular'))
-.then(res=>res.json())
-.then(data=>{
-    renderMovie(data, popularDiv);
-})
-fetch(generatUrl('/movie/top_rated'))
-.then(res=>res.json())
-.then(data=>{
-    renderMovie(data, topRatedDiv);
-})
-fetch(generatUrl('/movie/upcoming'))
-.then(res=>res.json())
-.then(data=>{
-    renderMovie(data, upcomingDiv);
-})
