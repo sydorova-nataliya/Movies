@@ -61,4 +61,12 @@ export const renderError = ({status_code, status_message}) => (`
      </div>
    `);
 
-     
+   export const renderNoMovies = () => (`
+   <div class="section">
+     <section class="container">
+       <div class="error_holder">
+       <h2> There is no such movie! Try again.</h2>
+       </div>
+     </section>
+   </div>
+ `);
